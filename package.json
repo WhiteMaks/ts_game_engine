@@ -10,5 +10,8 @@
   },
   "scripts": {
     "test": "jest"
+  },
+  "imports": {
+    "#*": "./src/libs/*.ts"
   }
 }
