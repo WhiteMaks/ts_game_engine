@@ -21,6 +21,7 @@ import ShaderProgramFactory from "#graphics_engine/src/factories/ShaderProgramFa
 import Default2DShader from "#graphics_engine/src/support/Default2DShader";
 import Time from "#graphics_engine/src/support/Time";
 import GraphicsElement from "#graphics_engine/src/graphics/GraphicsElement";
+import Entity from "#entity_component_system/src/entity/Entity";
 
 class GameEngine extends GraphicsApplication {
 	public static renderer2D: Renderer2D;
@@ -45,6 +46,9 @@ class GameEngine extends GraphicsApplication {
 		this.time = new Time();
 
 		Input.instance = new BaseInput(this.mouse, this.keyboard);
+
+		const entity = new Entity(1);
+		// entity.addComponent();
 	}
 
 	protected init(): void {
