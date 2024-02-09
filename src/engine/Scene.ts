@@ -3,7 +3,6 @@ import Entity from "#entity_component_system/src/entity/Entity";
 import Sprite2DRendererSystemComponent from "./ecs/system/ext/Sprite2DRendererSystemComponent";
 import TransformSystemComponent from "./ecs/system/ext/TransformSystemComponent";
 import TransformComponent from "./ecs/component/ext/TransformComponent";
-import Vector3 from "#graphics_engine/src/maths/impl/Vector3";
 import TagComponent from "./ecs/component/ext/TagComponent";
 import TagSystemComponent from "./ecs/system/ext/TagSystemComponent";
 import CameraSystemComponent from "./ecs/system/ext/CameraSystemComponent";
@@ -43,15 +42,8 @@ class Scene {
 		name = name + " " + Scene.entityId;
 
 		const result = new Entity(Scene.entityId++);
-		result.addComponent(
-			new TransformComponent(
-				result,
-				new Vector3(0, 0, 0),
-				new Vector3(0, 0, 0),
-				new Vector3(1, 1, 1)
-			)
-		);
-		result.addComponent(new TagComponent(result, name));
+		result.addComponent(TransformComponent);
+		result.addComponent(TagComponent).tag = name;
 		return result;
 	}
 

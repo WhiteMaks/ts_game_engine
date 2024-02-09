@@ -5,14 +5,11 @@ import CameraSystemComponent from "../../system/ext/CameraSystemComponent";
 import ICamera from "#graphics_engine/src/camera/ICamera";
 
 class CameraComponent extends GameComponent {
-	public camera: ICamera;
-	public primary: boolean;
+	public camera!: ICamera;
+	public primary!: boolean;
 
-	public constructor(entity: Entity, camera: ICamera, primary: boolean = false) {
+	public constructor(entity: Entity) {
 		super(entity);
-
-		this.camera = camera;
-		this.primary = primary;
 
 		CameraSystemComponent.getInstance().saveComponent(this);
 	}

@@ -7,12 +7,12 @@ import GameEngine from "../../../GameEngine";
 import ColorRendererSystemComponent from "../../system/ext/ColorRendererSystemComponent";
 
 class ColorRendererComponent extends GameComponent {
-	public readonly color: Vector4;
+	public color: Vector4;
 
-	public constructor(entity: Entity, color: Vector4) {
+	public constructor(entity: Entity) {
 		super(entity);
 
-		this.color = color;
+		this.color = new Vector4(1, 1, 1, 1);
 
 		ColorRendererSystemComponent.getInstance().saveComponent(this);
 	}

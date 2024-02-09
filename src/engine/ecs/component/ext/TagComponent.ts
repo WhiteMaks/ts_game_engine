@@ -4,12 +4,10 @@ import Entity from "#entity_component_system/src/entity/Entity";
 import TagSystemComponent from "../../system/ext/TagSystemComponent";
 
 class TagComponent extends GameComponent {
-	public tag: string;
+	public tag!: string;
 
-	public constructor(entity: Entity, tag: string) {
+	public constructor(entity: Entity) {
 		super(entity);
-
-		this.tag = tag;
 
 		TagSystemComponent.getInstance().saveComponent(this);
 	}
