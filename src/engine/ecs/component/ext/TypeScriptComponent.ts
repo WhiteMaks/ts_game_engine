@@ -5,7 +5,7 @@ import BaseScript from "../../script/BaseScript";
 import TypeScriptSystemComponent from "../../system/ext/TypeScriptSystemComponent";
 
 class TypeScriptComponent extends GameComponent {
-	private script: BaseScript | null;
+	private script!: BaseScript | null;
 
 	private instanceFn: () => void;
 	private destroyFn: () => void;
@@ -16,8 +16,6 @@ class TypeScriptComponent extends GameComponent {
 
 	public constructor(entity: Entity) {
 		super(entity);
-
-		this.script = null;
 
 		this.instanceFn = () => {};
 		this.destroyFn = () => {};

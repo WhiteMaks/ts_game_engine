@@ -7,12 +7,10 @@ import TransformComponent from "./TransformComponent";
 import Texture2DRendererSystemComponent from "../../system/ext/Texture2DRendererSystemComponent";
 
 class Texture2DRendererComponent extends GameComponent {
-	public texture: ITexture;
+	public texture!: ITexture;
 
-	public constructor(entity: Entity, texture: ITexture) {
+	public constructor(entity: Entity) {
 		super(entity);
-
-		this.texture = texture;
 
 		Texture2DRendererSystemComponent.getInstance().saveComponent(this);
 	}
