@@ -9,6 +9,8 @@ abstract class GameComponent extends Component {
 	}
 
 	public abstract update(time: Time): void;
+
+	public abstract render(): void;
 }
 
 export default GameComponent;

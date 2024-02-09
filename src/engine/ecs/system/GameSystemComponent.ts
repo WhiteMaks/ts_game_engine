@@ -13,6 +13,12 @@ abstract class GameSystemComponent<T extends GameComponent> extends System<T> {
 			component.update(time);
 		}
 	}
+
+	public render(): void {
+		for (const component of this.components) {
+			component.render();
+		}
+	}
 }
 
 export default GameSystemComponent;
