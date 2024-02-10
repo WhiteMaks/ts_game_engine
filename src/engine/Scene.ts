@@ -82,7 +82,13 @@ class Scene {
 	}
 
 	public clean(): void {
-
+		this.transformSystemComponent.clean();
+		this.sprite2DRendererSystemComponent.clean();
+		this.tagSystemComponent.clean();
+		this.cameraSystemComponent.clean();
+		this.texture2DRendererSystemComponent.clean();
+		this.colorRendererSystemComponent.clean();
+		this.typeScriptSystemComponent.clean();
 	}
 }
 
