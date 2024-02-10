@@ -1,7 +1,7 @@
-import GameSystemComponent from "../GameSystemComponent";
-import Texture2DRendererComponent from "../../component/ext/Texture2DRendererComponent";
+import {GameSystemComponent} from "../GameSystemComponent";
+import {Texture2DRendererComponent} from "../../component/ext/Texture2DRendererComponent";
 
-class Texture2DRendererSystemComponent extends GameSystemComponent<Texture2DRendererComponent> {
+export class Texture2DRendererSystemComponent extends GameSystemComponent<Texture2DRendererComponent> {
 	private static instance: Texture2DRendererSystemComponent | null;
 
 	private constructor() {
@@ -16,5 +16,3 @@ class Texture2DRendererSystemComponent extends GameSystemComponent<Texture2DRend
 		return Texture2DRendererSystemComponent.instance;
 	}
 }
-
-export default Texture2DRendererSystemComponent;

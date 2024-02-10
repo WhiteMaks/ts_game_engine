@@ -1,7 +1,7 @@
-import GameSystemComponent from "../GameSystemComponent";
-import TransformComponent from "../../component/ext/TransformComponent";
+import {GameSystemComponent} from "../GameSystemComponent";
+import {TransformComponent} from "../../component/ext/TransformComponent";
 
-class TransformSystemComponent extends GameSystemComponent<TransformComponent> {
+export class TransformSystemComponent extends GameSystemComponent<TransformComponent> {
 	private static instance: TransformSystemComponent | null;
 
 	private constructor() {
@@ -16,5 +16,3 @@ class TransformSystemComponent extends GameSystemComponent<TransformComponent> {
 		return TransformSystemComponent.instance;
 	}
 }
-
-export default TransformSystemComponent;

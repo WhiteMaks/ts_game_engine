@@ -1,24 +1,21 @@
-import Entity from "#entity_component_system/src/entity/Entity";
-import Component from "#entity_component_system/src/component/Component";
-import Time from "#graphics_engine/src/support/Time";
+import {ECS} from "#entity_component_system/src/namespace/ecs";
+import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
 
-abstract class BaseScript {
-	private readonly entity: Entity;
+export abstract class BaseScript {
+	private readonly entity: ECS.Entity;
 
-	public constructor(entity: Entity) {
+	public constructor(entity: ECS.Entity) {
 		this.entity = entity;
 	}
 
-	protected getComponent<T extends Component>(componentClass: new (...args: any[]) => T): T {
+	protected getComponent<T extends ECS.Component>(componentClass: new (...args: any[]) => T): T {
 		return this.entity.getComponent(componentClass);
 	}
 
 	public init(): void {}
 
-	public abstract update(time: Time): void;
+	public abstract update(time: GraphicsEngine.Time): void;
 
 	public destroy(): void {}
 
 }
-
-export default BaseScript;

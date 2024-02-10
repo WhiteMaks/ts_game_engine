@@ -1,25 +1,24 @@
-import GameComponent from "../GameComponent";
-import Entity from "#entity_component_system/src/entity/Entity";
-import Vector3 from "#graphics_engine/src/maths/impl/Vector3";
-import TransformSystemComponent from "../../system/ext/TransformSystemComponent";
-import Time from "#graphics_engine/src/support/Time";
+import {GameComponent} from "../GameComponent";
+import {TransformSystemComponent} from "../../system/ext/TransformSystemComponent";
+import {ECS} from "#entity_component_system/src/namespace/ecs";
+import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
 
-class TransformComponent extends GameComponent {
-	public position: Vector3;
-	public rotation: Vector3;
-	public scale: Vector3;
+export class TransformComponent extends GameComponent {
+	public position: GraphicsEngine.Vector3;
+	public rotation: GraphicsEngine.Vector3;
+	public scale: GraphicsEngine.Vector3;
 
-	public constructor(entity: Entity) {
+	public constructor(entity: ECS.Entity) {
 		super(entity);
 
-		this.position = new Vector3(0, 0, 0);
-		this.rotation = new Vector3(0, 0, 0);
-		this.scale = new Vector3(1, 1, 1);
+		this.position = new GraphicsEngine.Vector3(0, 0, 0);
+		this.rotation = new GraphicsEngine.Vector3(0, 0, 0);
+		this.scale = new GraphicsEngine.Vector3(1, 1, 1);
 
 		TransformSystemComponent.getInstance().saveComponent(this);
 	}
 
-	public update(time: Time): void {
+	public update(time: GraphicsEngine.Time): void {
 	}
 
 	public render(): void {
@@ -31,5 +30,3 @@ class TransformComponent extends GameComponent {
 	}
 
 }
-
-export default TransformComponent;

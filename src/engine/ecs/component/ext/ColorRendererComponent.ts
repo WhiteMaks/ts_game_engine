@@ -1,23 +1,22 @@
-import GameComponent from "../GameComponent";
-import Time from "#graphics_engine/src/support/Time";
-import Entity from "#entity_component_system/src/entity/Entity";
-import Vector4 from "#graphics_engine/src/maths/impl/Vector4";
-import TransformComponent from "./TransformComponent";
-import GameEngine from "../../../GameEngine";
-import ColorRendererSystemComponent from "../../system/ext/ColorRendererSystemComponent";
+import {GameComponent} from "../GameComponent";
+import {TransformComponent} from "./TransformComponent";
+import {GameEngine} from "../../../GameEngine";
+import {ColorRendererSystemComponent} from "../../system/ext/ColorRendererSystemComponent";
+import {ECS} from "#entity_component_system/src/namespace/ecs";
+import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
 
-class ColorRendererComponent extends GameComponent {
-	public color: Vector4;
+export class ColorRendererComponent extends GameComponent {
+	public color: GraphicsEngine.Vector4;
 
-	public constructor(entity: Entity) {
+	public constructor(entity: ECS.Entity) {
 		super(entity);
 
-		this.color = new Vector4(1, 1, 1, 1);
+		this.color = new GraphicsEngine.Vector4(1, 1, 1, 1);
 
 		ColorRendererSystemComponent.getInstance().saveComponent(this);
 	}
 
-	public update(time: Time): void {
+	public update(time: GraphicsEngine.Time): void {
 	}
 
 	public render(): void {
@@ -34,5 +33,3 @@ class ColorRendererComponent extends GameComponent {
 		ColorRendererSystemComponent.getInstance().removeComponent(this);
 	}
 }
-
-export default ColorRendererComponent;

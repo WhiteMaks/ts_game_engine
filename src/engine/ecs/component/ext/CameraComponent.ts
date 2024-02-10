@@ -1,14 +1,13 @@
-import Entity from "#entity_component_system/src/entity/Entity";
-import GameComponent from "../GameComponent";
-import Time from "#graphics_engine/src/support/Time";
-import CameraSystemComponent from "../../system/ext/CameraSystemComponent";
-import ICamera from "#graphics_engine/src/camera/ICamera";
+import {GameComponent} from "../GameComponent";
+import {CameraSystemComponent} from "../../system/ext/CameraSystemComponent";
+import {ECS} from "#entity_component_system/src/namespace/ecs";
+import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
 
-class CameraComponent extends GameComponent {
-	public camera!: ICamera;
+export class CameraComponent extends GameComponent {
+	public camera!: GraphicsEngine.ICamera;
 	public primary!: boolean;
 
-	public constructor(entity: Entity) {
+	public constructor(entity: ECS.Entity) {
 		super(entity);
 
 		CameraSystemComponent.getInstance().saveComponent(this);
@@ -17,7 +16,7 @@ class CameraComponent extends GameComponent {
 	public render(): void {
 	}
 
-	public update(time: Time): void {
+	public update(time: GraphicsEngine.Time): void {
 		const cameraComponent = this.entity.getComponent(CameraComponent);
 		if (cameraComponent.primary) {
 			cameraComponent.camera.update();
@@ -29,5 +28,3 @@ class CameraComponent extends GameComponent {
 	}
 
 }
-
-export default CameraComponent;

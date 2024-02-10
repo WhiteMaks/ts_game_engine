@@ -1,7 +1,7 @@
-import GameSystemComponent from "../GameSystemComponent";
-import Sprite2DRendererComponent from "../../component/ext/Sprite2DRendererComponent";
+import {GameSystemComponent} from "../GameSystemComponent";
+import {Sprite2DRendererComponent} from "../../component/ext/Sprite2DRendererComponent";
 
-class Sprite2DRendererSystemComponent extends GameSystemComponent<Sprite2DRendererComponent> {
+export class Sprite2DRendererSystemComponent extends GameSystemComponent<Sprite2DRendererComponent> {
 	private static instance: Sprite2DRendererSystemComponent | null;
 
 	private constructor() {
@@ -17,5 +17,3 @@ class Sprite2DRendererSystemComponent extends GameSystemComponent<Sprite2DRender
 	}
 
 }
-
-export default Sprite2DRendererSystemComponent;

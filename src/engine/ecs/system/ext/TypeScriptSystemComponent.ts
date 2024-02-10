@@ -1,7 +1,7 @@
-import GameSystemComponent from "../GameSystemComponent";
-import TypeScriptComponent from "../../component/ext/TypeScriptComponent";
+import {GameSystemComponent} from "../GameSystemComponent";
+import {TypeScriptComponent} from "../../component/ext/TypeScriptComponent";
 
-class TypeScriptSystemComponent extends GameSystemComponent<TypeScriptComponent> {
+export class TypeScriptSystemComponent extends GameSystemComponent<TypeScriptComponent> {
 	private static instance: TypeScriptSystemComponent | null;
 
 	private constructor() {
@@ -16,5 +16,3 @@ class TypeScriptSystemComponent extends GameSystemComponent<TypeScriptComponent>
 		return TypeScriptSystemComponent.instance;
 	}
 }
-
-export default TypeScriptSystemComponent;

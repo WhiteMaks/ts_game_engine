@@ -1,10 +1,8 @@
-import ILayer from "../ILayer";
-import Time from "#graphics_engine/src/support/Time";
-import MouseEvent from "#events_system/src/mouse/MouseEvent";
-import KeyboardEvent from "#events_system/src/keyboard/KeyboardEvent";
-import ElementEvent from "#events_system/src/element/ElementEvent";
+import {ILayer} from "../ILayer";
+import {EventSystem} from "#events_system/src/namespace/event_system";
+import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
 
-abstract class BaseLayer implements ILayer {
+export abstract class BaseLayer implements ILayer {
 	private readonly name: string;
 
 	protected constructor(name: string = "layer") {
@@ -19,18 +17,16 @@ abstract class BaseLayer implements ILayer {
 
 	public abstract detach(): void;
 
-	public abstract keyboardInput(event: KeyboardEvent): void;
+	public abstract keyboardInput(event: EventSystem.KeyboardEvent): void;
 
-	public abstract mouseInput(event: MouseEvent): void;
+	public abstract mouseInput(event: EventSystem.MouseEvent): void;
 
-	public abstract elementInput(event: ElementEvent): void;
+	public abstract elementInput(event: EventSystem.ElementEvent): void;
 
-	public abstract update(time: Time): void;
+	public abstract update(time: GraphicsEngine.Time): void;
 
 	public abstract render(): void;
 
 	public abstract clean(): void;
 
 }
-
-export default BaseLayer;

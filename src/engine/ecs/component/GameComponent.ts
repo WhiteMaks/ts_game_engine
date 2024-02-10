@@ -1,16 +1,13 @@
-import Component from "#entity_component_system/src/component/Component";
-import Entity from "#entity_component_system/src/entity/Entity";
-import Time from "#graphics_engine/src/support/Time";
+import {ECS} from "#entity_component_system/src/namespace/ecs";
+import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
 
-abstract class GameComponent extends Component {
+export abstract class GameComponent extends ECS.Component {
 
-	protected constructor(entity: Entity) {
+	protected constructor(entity: ECS.Entity) {
 		super(entity);
 	}
 
-	public abstract update(time: Time): void;
+	public abstract update(time: GraphicsEngine.Time): void;
 
 	public abstract render(): void;
 }
-
-export default GameComponent;

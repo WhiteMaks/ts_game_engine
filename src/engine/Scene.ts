@@ -1,17 +1,17 @@
-import Time from "#graphics_engine/src/support/Time";
-import Entity from "#entity_component_system/src/entity/Entity";
-import Sprite2DRendererSystemComponent from "./ecs/system/ext/Sprite2DRendererSystemComponent";
-import TransformSystemComponent from "./ecs/system/ext/TransformSystemComponent";
-import TransformComponent from "./ecs/component/ext/TransformComponent";
-import TagComponent from "./ecs/component/ext/TagComponent";
-import TagSystemComponent from "./ecs/system/ext/TagSystemComponent";
-import CameraSystemComponent from "./ecs/system/ext/CameraSystemComponent";
-import GameEngine from "./GameEngine";
-import Texture2DRendererSystemComponent from "./ecs/system/ext/Texture2DRendererSystemComponent";
-import ColorRendererSystemComponent from "./ecs/system/ext/ColorRendererSystemComponent";
-import TypeScriptSystemComponent from "./ecs/system/ext/TypeScriptSystemComponent";
+import {Sprite2DRendererSystemComponent} from "./ecs/system/ext/Sprite2DRendererSystemComponent";
+import {TransformSystemComponent} from "./ecs/system/ext/TransformSystemComponent";
+import {TransformComponent} from "./ecs/component/ext/TransformComponent";
+import {TagComponent} from "./ecs/component/ext/TagComponent";
+import {TagSystemComponent} from "./ecs/system/ext/TagSystemComponent";
+import {CameraSystemComponent} from "./ecs/system/ext/CameraSystemComponent";
+import {GameEngine} from "./GameEngine";
+import {Texture2DRendererSystemComponent} from "./ecs/system/ext/Texture2DRendererSystemComponent";
+import {ColorRendererSystemComponent} from "./ecs/system/ext/ColorRendererSystemComponent";
+import {TypeScriptSystemComponent} from "./ecs/system/ext/TypeScriptSystemComponent";
+import {ECS} from "#entity_component_system/src/namespace/ecs";
+import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
 
-class Scene {
+export class Scene {
 	private static entityId: number = 1;
 
 	private readonly transformSystemComponent: TransformSystemComponent;
@@ -38,10 +38,10 @@ class Scene {
 		this.height = height;
 	}
 
-	public createEntity(name: string = "Entity"): Entity {
+	public createEntity(name: string = "Entity"): ECS.Entity {
 		name = name + " " + Scene.entityId;
 
-		const result = new Entity(Scene.entityId++);
+		const result = new ECS.Entity(Scene.entityId++);
 		result.addComponent(TransformComponent);
 		result.addComponent(TagComponent).tag = name;
 		return result;
@@ -58,7 +58,7 @@ class Scene {
 		this.resizeCamera();
 	}
 
-	public update(time: Time): void {
+	public update(time: GraphicsEngine.Time): void {
 		this.transformSystemComponent.update(time);
 		this.sprite2DRendererSystemComponent.update(time);
 		this.tagSystemComponent.update(time);
@@ -91,5 +91,3 @@ class Scene {
 		this.typeScriptSystemComponent.clean();
 	}
 }
-
-export default Scene;

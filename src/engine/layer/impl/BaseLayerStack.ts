@@ -1,7 +1,7 @@
-import ILayerStack from "../ILayerStack";
-import ILayer from "../ILayer";
+import {ILayerStack} from "../ILayerStack";
+import {ILayer} from "../ILayer";
 
-class BaseLayerStack<LAYER extends ILayer> implements ILayerStack<LAYER> {
+export class BaseLayerStack<LAYER extends ILayer> implements ILayerStack<LAYER> {
 	private readonly layers: LAYER[];
 
 	private layerInsert: number;
@@ -34,5 +34,3 @@ class BaseLayerStack<LAYER extends ILayer> implements ILayerStack<LAYER> {
 	}
 
 }
-
-export default BaseLayerStack;

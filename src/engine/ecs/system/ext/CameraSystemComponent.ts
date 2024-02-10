@@ -1,8 +1,8 @@
-import GameSystemComponent from "../GameSystemComponent";
-import CameraComponent from "../../component/ext/CameraComponent";
-import ICamera from "../../../../libs/graphics_engine/src/camera/ICamera";
+import {GameSystemComponent} from "../GameSystemComponent";
+import {CameraComponent} from "../../component/ext/CameraComponent";
+import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
 
-class CameraSystemComponent extends GameSystemComponent<CameraComponent> {
+export class CameraSystemComponent extends GameSystemComponent<CameraComponent> {
 	private static instance: CameraSystemComponent | null;
 
 	private constructor() {
@@ -23,7 +23,7 @@ class CameraSystemComponent extends GameSystemComponent<CameraComponent> {
 		}
 	}
 
-	public getPrimaryCamera(): ICamera | null {
+	public getPrimaryCamera(): GraphicsEngine.ICamera | null {
 		for (const component of this.components) {
 			if (component.primary) {
 				return component.camera;
@@ -32,5 +32,3 @@ class CameraSystemComponent extends GameSystemComponent<CameraComponent> {
 		return null;
 	}
 }
-
-export default CameraSystemComponent;

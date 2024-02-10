@@ -1,12 +1,12 @@
-import GameComponent from "../GameComponent";
-import Time from "#graphics_engine/src/support/Time";
-import Entity from "#entity_component_system/src/entity/Entity";
-import TagSystemComponent from "../../system/ext/TagSystemComponent";
+import {GameComponent} from "../GameComponent";
+import {TagSystemComponent} from "../../system/ext/TagSystemComponent";
+import {ECS} from "#entity_component_system/src/namespace/ecs";
+import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
 
-class TagComponent extends GameComponent {
+export class TagComponent extends GameComponent {
 	public tag!: string;
 
-	public constructor(entity: Entity) {
+	public constructor(entity: ECS.Entity) {
 		super(entity);
 
 		TagSystemComponent.getInstance().saveComponent(this);
@@ -19,9 +19,7 @@ class TagComponent extends GameComponent {
 	public render(): void {
 	}
 
-	public update(time: Time): void {
+	public update(time: GraphicsEngine.Time): void {
 	}
 
 }
-
-export default TagComponent;

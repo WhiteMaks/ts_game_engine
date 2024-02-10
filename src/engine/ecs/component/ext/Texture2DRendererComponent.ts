@@ -1,15 +1,14 @@
-import GameComponent from "../GameComponent";
-import Time from "#graphics_engine/src/support/Time";
-import ITexture from "#graphics_engine/src/resource/ITexture";
-import Entity from "#entity_component_system/src/entity/Entity";
-import GameEngine from "../../../GameEngine";
-import TransformComponent from "./TransformComponent";
-import Texture2DRendererSystemComponent from "../../system/ext/Texture2DRendererSystemComponent";
+import {GameComponent} from "../GameComponent";
+import {GameEngine} from "../../../GameEngine";
+import {TransformComponent} from "./TransformComponent";
+import {Texture2DRendererSystemComponent} from "../../system/ext/Texture2DRendererSystemComponent";
+import {ECS} from "#entity_component_system/src/namespace/ecs";
+import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
 
-class Texture2DRendererComponent extends GameComponent {
-	public texture!: ITexture;
+export class Texture2DRendererComponent extends GameComponent {
+	public texture!: GraphicsEngine.ITexture;
 
-	public constructor(entity: Entity) {
+	public constructor(entity: ECS.Entity) {
 		super(entity);
 
 		Texture2DRendererSystemComponent.getInstance().saveComponent(this);
@@ -29,9 +28,7 @@ class Texture2DRendererComponent extends GameComponent {
 		);
 	}
 
-	public update(time: Time): void {
+	public update(time: GraphicsEngine.Time): void {
 	}
 
 }
-
-export default Texture2DRendererComponent;

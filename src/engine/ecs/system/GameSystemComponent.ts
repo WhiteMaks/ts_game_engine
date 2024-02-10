@@ -1,14 +1,14 @@
-import System from "#entity_component_system/src/system/System";
-import Time from "#graphics_engine/src/support/Time";
-import GameComponent from "../component/GameComponent";
+import {GameComponent} from "../component/GameComponent";
+import {ECS} from "#entity_component_system/src/namespace/ecs";
+import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
 
-abstract class GameSystemComponent<T extends GameComponent> extends System<T> {
+export abstract class GameSystemComponent<T extends GameComponent> extends ECS.System<T> {
 
 	protected constructor() {
 		super();
 	}
 
-	public update(time: Time): void {
+	public update(time: GraphicsEngine.Time): void {
 		for (const component of this.components) {
 			component.update(time);
 		}
@@ -20,5 +20,3 @@ abstract class GameSystemComponent<T extends GameComponent> extends System<T> {
 		}
 	}
 }
-
-export default GameSystemComponent;

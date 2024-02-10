@@ -1,7 +1,7 @@
-import GameSystemComponent from "../GameSystemComponent";
-import ColorRendererComponent from "../../component/ext/ColorRendererComponent";
+import {GameSystemComponent} from "../GameSystemComponent";
+import {ColorRendererComponent} from "../../component/ext/ColorRendererComponent";
 
-class ColorRendererSystemComponent extends GameSystemComponent<ColorRendererComponent> {
+export class ColorRendererSystemComponent extends GameSystemComponent<ColorRendererComponent> {
 	private static instance: ColorRendererSystemComponent | null;
 
 	private constructor() {
@@ -17,5 +17,3 @@ class ColorRendererSystemComponent extends GameSystemComponent<ColorRendererComp
 	}
 
 }
-
-export default ColorRendererSystemComponent;

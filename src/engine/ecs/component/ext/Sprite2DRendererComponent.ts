@@ -1,21 +1,20 @@
-import GameComponent from "../GameComponent";
-import Time from "#graphics_engine/src/support/Time";
-import Entity from "#entity_component_system/src/entity/Entity";
-import Sprite2DRendererSystemComponent from "../../system/ext/Sprite2DRendererSystemComponent";
-import TransformComponent from "./TransformComponent";
-import GameEngine from "../../../GameEngine";
-import Sprite2D from "#graphics_engine/src/resource/Sprite2D";
+import {GameComponent} from "../GameComponent";
+import {Sprite2DRendererSystemComponent} from "../../system/ext/Sprite2DRendererSystemComponent";
+import {TransformComponent} from "./TransformComponent";
+import {GameEngine} from "../../../GameEngine";
+import {ECS} from "#entity_component_system/src/namespace/ecs";
+import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
 
-class Sprite2DRendererComponent extends GameComponent {
-	public sprite!: Sprite2D;
+export class Sprite2DRendererComponent extends GameComponent {
+	public sprite!: GraphicsEngine.Sprite2D;
 
-	public constructor(entity: Entity) {
+	public constructor(entity: ECS.Entity) {
 		super(entity);
 
 		Sprite2DRendererSystemComponent.getInstance().saveComponent(this);
 	}
 
-	public update(time: Time): void {
+	public update(time: GraphicsEngine.Time): void {
 	}
 
 	public render(): void {
@@ -32,5 +31,3 @@ class Sprite2DRendererComponent extends GameComponent {
 		Sprite2DRendererSystemComponent.getInstance().removeComponent(this);
 	}
 }
-
-export default Sprite2DRendererComponent;

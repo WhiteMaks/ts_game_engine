@@ -1,7 +1,7 @@
-import GameSystemComponent from "../GameSystemComponent";
-import TagComponent from "../../component/ext/TagComponent";
+import {GameSystemComponent} from "../GameSystemComponent";
+import {TagComponent} from "../../component/ext/TagComponent";
 
-class TagSystemComponent extends GameSystemComponent<TagComponent> {
+export class TagSystemComponent extends GameSystemComponent<TagComponent> {
 	private static instance: TagSystemComponent | null;
 
 	private constructor() {
@@ -16,5 +16,3 @@ class TagSystemComponent extends GameSystemComponent<TagComponent> {
 		return TagSystemComponent.instance;
 	}
 }
-
-export default TagSystemComponent;

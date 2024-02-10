@@ -1,7 +1,7 @@
-import ILayer from "./ILayer";
-import Cleanable from "#graphics_engine/src/support/Cleanable";
+import {ILayer} from "./ILayer";
+import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
 
-interface ILayerStack<LAYER extends ILayer> extends Cleanable {
+export interface ILayerStack<LAYER extends ILayer> extends GraphicsEngine.Cleanable {
 
 	push(layer: LAYER): void;
 
@@ -10,5 +10,3 @@ interface ILayerStack<LAYER extends ILayer> extends Cleanable {
 	getLayers(): LAYER[];
 
 }
-
-export default ILayerStack;

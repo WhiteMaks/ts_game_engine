@@ -1,26 +1,26 @@
-import GameComponent from "../GameComponent";
-import Time from "#graphics_engine/src/support/Time";
-import Entity from "#entity_component_system/src/entity/Entity";
-import BaseScript from "../../script/BaseScript";
-import TypeScriptSystemComponent from "../../system/ext/TypeScriptSystemComponent";
+import {GameComponent} from "../GameComponent";
+import {BaseScript} from "../../script/BaseScript";
+import {TypeScriptSystemComponent} from "../../system/ext/TypeScriptSystemComponent";
+import {ECS} from "#entity_component_system/src/namespace/ecs";
+import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
 
-class TypeScriptComponent extends GameComponent {
+export class TypeScriptComponent extends GameComponent {
 	private script!: BaseScript | null;
 
 	private instanceFn: () => void;
 	private destroyFn: () => void;
 
 	private onInitFn: () => void;
-	private onUpdateFn: (time: Time) => void;
+	private onUpdateFn: (time: GraphicsEngine.Time) => void;
 	private onDestroyFn: () => void;
 
-	public constructor(entity: Entity) {
+	public constructor(entity: ECS.Entity) {
 		super(entity);
 
 		this.instanceFn = () => {};
 		this.destroyFn = () => {};
 		this.onInitFn = () => {};
-		this.onUpdateFn = (time: Time) => {};
+		this.onUpdateFn = (time: GraphicsEngine.Time) => {};
 		this.onDestroyFn = () => {};
 
 		TypeScriptSystemComponent.getInstance().saveComponent(this);
@@ -37,7 +37,7 @@ class TypeScriptComponent extends GameComponent {
 			this.instanceFn = () => {};
 			this.destroyFn = () => {};
 			this.onInitFn = () => {};
-			this.onUpdateFn = (time: Time) => {};
+			this.onUpdateFn = (time: GraphicsEngine.Time) => {};
 			this.onDestroyFn = () => {};
 		};
 
@@ -45,7 +45,7 @@ class TypeScriptComponent extends GameComponent {
 			this.script!.init();
 		};
 
-		this.onUpdateFn = (time: Time) => {
+		this.onUpdateFn = (time: GraphicsEngine.Time) => {
 			this.script!.update(time);
 		};
 
@@ -63,7 +63,7 @@ class TypeScriptComponent extends GameComponent {
 	public render(): void {
 	}
 
-	public update(time: Time): void {
+	public update(time: GraphicsEngine.Time): void {
 		if (!this.script) {
 			this.instanceFn();
 			this.onInitFn();
@@ -73,5 +73,3 @@ class TypeScriptComponent extends GameComponent {
 	}
 
 }
-
-export default TypeScriptComponent;

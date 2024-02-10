@@ -1,27 +1,22 @@
-import Cleanable from "#graphics_engine/src/support/Cleanable";
-import Time from "#graphics_engine/src/support/Time";
-import MouseEvent from "#events_system/src/mouse/MouseEvent";
-import KeyboardEvent from "#events_system/src/keyboard/KeyboardEvent";
-import ElementEvent from "#events_system/src/element/ElementEvent";
+import {EventSystem} from "#events_system/src/namespace/event_system";
+import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
 
-interface ILayer extends Cleanable {
+export interface ILayer extends GraphicsEngine.Cleanable {
 
 	attach(): void;
 
 	detach(): void;
 
-	mouseInput(event: MouseEvent): void;
+	mouseInput(event: EventSystem.MouseEvent): void;
 
-	keyboardInput(event: KeyboardEvent): void;
+	keyboardInput(event: EventSystem.KeyboardEvent): void;
 
-	elementInput(event: ElementEvent): void;
+	elementInput(event: EventSystem.ElementEvent): void;
 
-	update(time: Time): void;
+	update(time: GraphicsEngine.Time): void;
 
 	render(): void;
 
 	getName(): string;
 
 }
-
-export default ILayer;
