@@ -3,12 +3,9 @@ import ShaderProgramLibrary from "#graphics_engine/src/shader/ShaderProgramLibra
 import Renderer from "#graphics_engine/src/renderer/Renderer";
 import RendererAPI from "#graphics_engine/src/renderer/RendererAPI";
 import Renderer2D from "#graphics_engine/src/renderer/Renderer2D";
-import ILayerStack from "#graphics_engine/src/layers/ILayerStack";
-import BaseLayer from "#graphics_engine/src/layers/impl/BaseLayer";
-import MouseEvent from "#events_system/src/mouse/MouseEvent";
-import KeyboardEvent from "#events_system/src/keyboard/KeyboardEvent";
-import ElementEvent from "#events_system/src/element/ElementEvent";
-import BaseLayerStack from "#graphics_engine/src/layers/impl/BaseLayerStack";
+import ILayerStack from "./layer/ILayerStack";
+import BaseLayer from "./layer/impl/BaseLayer";
+import BaseLayerStack from "./layer/impl/BaseLayerStack";
 import IShaderProgram from "#graphics_engine/src/shader/IShaderProgram";
 import IGraphicsContext from "#graphics_engine/src/renderer/IGraphicsContext";
 import RendererFactory from "#graphics_engine/src/factories/RendererFactory";
@@ -26,7 +23,7 @@ class GameEngine extends GraphicsApplication {
 	public static renderer2D: Renderer2D;
 
 	private readonly shaderProgramLibrary: ShaderProgramLibrary;
-	private readonly layerStack: ILayerStack<BaseLayer<MouseEvent, KeyboardEvent, ElementEvent>>;
+	private readonly layerStack: ILayerStack<BaseLayer>;
 	private readonly mouse: Mouse;
 	private readonly keyboard: Keyboard;
 	private readonly element: Element;
@@ -140,11 +137,11 @@ class GameEngine extends GraphicsApplication {
 		this.shaderProgramLibrary.add(shaderProgram);
 	}
 
-	public pushLayer(layer: BaseLayer<MouseEvent, KeyboardEvent, ElementEvent>): void {
+	public pushLayer(layer: BaseLayer): void {
 		this.layerStack.push(layer);
 	}
 
-	public pushOverlayLayer(layer: BaseLayer<MouseEvent, KeyboardEvent, ElementEvent>): void {
+	public pushOverlayLayer(layer: BaseLayer): void {
 		this.layerStack.pushOverlay(layer);
 	}
 
