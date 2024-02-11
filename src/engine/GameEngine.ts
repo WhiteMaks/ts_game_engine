@@ -1,50 +1,32 @@
-import GraphicsApplication from "../libs/graphics_engine/src/graphics/GraphicsApplication";
-import ShaderProgramLibrary from "../libs/graphics_engine/src/shader/ShaderProgramLibrary";
-import Renderer from "../libs/graphics_engine/src/renderer/Renderer";
-import RendererAPI from "../libs/graphics_engine/src/renderer/RendererAPI";
-import Renderer2D from "../libs/graphics_engine/src/renderer/Renderer2D";
-import ILayerStack from "../libs/graphics_engine/src/layers/ILayerStack";
-import BaseLayer from "../libs/graphics_engine/src/layers/impl/BaseLayer";
-import MouseEvent from "../libs/events_system/src/mouse/MouseEvent";
-import KeyboardEvent from "../libs/events_system/src/keyboard/KeyboardEvent";
-import ElementEvent from "../libs/events_system/src/element/ElementEvent";
-import BaseLayerStack from "../libs/graphics_engine/src/layers/impl/BaseLayerStack";
-import IShaderProgram from "../libs/graphics_engine/src/shader/IShaderProgram";
-import IGraphicsContext from "../libs/graphics_engine/src/renderer/IGraphicsContext";
-import RendererFactory from "../libs/graphics_engine/src/factories/RendererFactory";
-import Mouse from "../libs/events_system/src/mouse/Mouse";
-import Keyboard from "../libs/events_system/src/keyboard/Keyboard";
-import Element from "../libs/events_system/src/element/Element";
-import Input from "../libs/events_system/src/inputs/Input";
-import BaseInput from "../libs/events_system/src/inputs/BaseInput";
-import ShaderProgramFactory from "../libs/graphics_engine/src/factories/ShaderProgramFactory";
-import Default2DShader from "../libs/graphics_engine/src/support/Default2DShader";
-import Time from "../libs/graphics_engine/src/support/Time";
-import GraphicsElement from "../libs/graphics_engine/src/graphics/GraphicsElement";
+import {ILayerStack} from "./layer/ILayerStack";
+import {BaseLayer} from "./layer/impl/BaseLayer";
+import {BaseLayerStack} from "./layer/impl/BaseLayerStack";
+import {EventSystem} from "#events_system/src/namespace/event_system";
+import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
 
-class GameEngine extends GraphicsApplication {
-	public static renderer2D: Renderer2D;
+export class GameEngine extends GraphicsEngine.GraphicsApplication {
+	public static renderer2D: GraphicsEngine.Renderer2D;
 
-	private readonly shaderProgramLibrary: ShaderProgramLibrary;
-	private readonly layerStack: ILayerStack<BaseLayer<MouseEvent, KeyboardEvent, ElementEvent>>;
-	private readonly mouse: Mouse;
-	private readonly keyboard: Keyboard;
-	private readonly element: Element;
-	private readonly time: Time;
+	private readonly shaderProgramLibrary: GraphicsEngine.ShaderProgramLibrary;
+	private readonly layerStack: ILayerStack<BaseLayer>;
+	private readonly mouse: EventSystem.Mouse;
+	private readonly keyboard: EventSystem.Keyboard;
+	private readonly element: EventSystem.Element;
+	private readonly time: GraphicsEngine.Time;
 
-	public constructor(parentElement: HTMLElement, api: RendererAPI = RendererAPI.WEB_GL) {
+	public constructor(parentElement: HTMLElement, api: GraphicsEngine.RendererAPI = GraphicsEngine.RendererAPI.WEB_GL) {
 		super(parentElement);
 
-		Renderer.setAPI(api);
+		GraphicsEngine.Renderer.setAPI(api);
 
-		this.shaderProgramLibrary = new ShaderProgramLibrary();
+		this.shaderProgramLibrary = new GraphicsEngine.ShaderProgramLibrary();
 		this.layerStack = new BaseLayerStack();
-		this.element = new Element(16);
-		this.mouse = new Mouse(16);
-		this.keyboard = new Keyboard(16);
-		this.time = new Time();
+		this.element = new EventSystem.Element(16);
+		this.mouse = new EventSystem.Mouse(16);
+		this.keyboard = new EventSystem.Keyboard(16);
+		this.time = new GraphicsEngine.Time();
 
-		Input.instance = new BaseInput(this.mouse, this.keyboard);
+		EventSystem.Input.instance = new EventSystem.BaseInput(this.mouse, this.keyboard);
 	}
 
 	protected init(): void {
@@ -124,31 +106,31 @@ class GameEngine extends GraphicsApplication {
 		super.clean();
 	}
 
-	public init2DRenderer(shaderProgram: IShaderProgram | null = null): void {
+	public init2DRenderer(shaderProgram: GraphicsEngine.IShaderProgram | null = null): void {
 		const context = this.getContext();
 
 		if (shaderProgram === null) {
-			shaderProgram = ShaderProgramFactory.createProgram(context, "2D shader program", Default2DShader.getVertexShader(), Default2DShader.getFragmentShader());
+			shaderProgram = GraphicsEngine.ShaderProgramFactory.createProgram(context, "2D shader program", GraphicsEngine.Default2DShader.getVertexShader(), GraphicsEngine.Default2DShader.getFragmentShader());
 		}
 		this.saveShaderProgram(shaderProgram);
 
-		GameEngine.renderer2D = RendererFactory.create2D(context);
+		GameEngine.renderer2D = GraphicsEngine.RendererFactory.create2D(context);
 		GameEngine.renderer2D.init(context, shaderProgram);
 	}
 
-	public saveShaderProgram(shaderProgram: IShaderProgram): void {
+	public saveShaderProgram(shaderProgram: GraphicsEngine.IShaderProgram): void {
 		this.shaderProgramLibrary.add(shaderProgram);
 	}
 
-	public pushLayer(layer: BaseLayer<MouseEvent, KeyboardEvent, ElementEvent>): void {
+	public pushLayer(layer: BaseLayer): void {
 		this.layerStack.push(layer);
 	}
 
-	public pushOverlayLayer(layer: BaseLayer<MouseEvent, KeyboardEvent, ElementEvent>): void {
+	public pushOverlayLayer(layer: BaseLayer): void {
 		this.layerStack.pushOverlay(layer);
 	}
 
-	public getContext(): IGraphicsContext {
+	public getContext(): GraphicsEngine.IGraphicsContext {
 		return this.getGraphicsElement().getGraphicsContext();
 	}
 
@@ -238,7 +220,7 @@ class GameEngine extends GraphicsApplication {
 		);
 	}
 
-	private addElementListener(graphicsElement: GraphicsElement): void {
+	private addElementListener(graphicsElement: GraphicsEngine.GraphicsElement): void {
 		window.addEventListener(
 			"resize",
 			() => {
@@ -248,5 +230,3 @@ class GameEngine extends GraphicsApplication {
 		);
 	}
 }
-
-export default GameEngine;
