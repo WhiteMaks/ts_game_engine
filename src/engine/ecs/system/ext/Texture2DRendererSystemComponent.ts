@@ -1,5 +1,5 @@
 import {GameSystemComponent} from "../GameSystemComponent";
-import {Texture2DRendererComponent} from "../../component/ext/Texture2DRendererComponent";
+import {Texture2DRendererComponent} from "../../../../libs/entity_component_system/component/ext/Texture2DRendererComponent";
 
 export class Texture2DRendererSystemComponent extends GameSystemComponent<Texture2DRendererComponent> {
 	private static instance: Texture2DRendererSystemComponent | null;

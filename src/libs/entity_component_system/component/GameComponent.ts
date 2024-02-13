@@ -1,9 +1,10 @@
-import {ECS} from "#entity_component_system/namespace/ecs";
+import {Component} from "./Component";
+import {Entity} from "../entity/Entity";
 import {GraphicsEngine} from "#graphics_engine/namespace/graphics_engine";
 
-export abstract class GameComponent extends ECS.Component {
+export abstract class GameComponent extends Component {
 
-	protected constructor(entity: ECS.Entity) {
+	protected constructor(entity: Entity) {
 		super(entity);
 	}
 

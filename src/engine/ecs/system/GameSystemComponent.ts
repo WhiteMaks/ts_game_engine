@@ -1,4 +1,4 @@
-import {GameComponent} from "../component/GameComponent";
+import {GameComponent} from "#entity_component_system/component/GameComponent";
 import {ECS} from "#entity_component_system/namespace/ecs";
 import {GraphicsEngine} from "#graphics_engine/namespace/graphics_engine";
 

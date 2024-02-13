@@ -1,14 +1,14 @@
-import {GameComponent} from "../GameComponent";
 import {TransformComponent} from "./TransformComponent";
-import {GameEngine} from "../../../GameEngine";
-import {ColorRendererSystemComponent} from "../../system/ext/ColorRendererSystemComponent";
-import {ECS} from "#entity_component_system/namespace/ecs";
+import {GameEngine} from "../../../../engine/GameEngine";
+import {ColorRendererSystemComponent} from "../../../../engine/ecs/system/ext/ColorRendererSystemComponent";
+import {GameComponent} from "../GameComponent";
+import {Entity} from "../../entity/Entity";
 import {GraphicsEngine} from "#graphics_engine/namespace/graphics_engine";
 
 export class ColorRendererComponent extends GameComponent {
 	public color: GraphicsEngine.Vector4;
 
-	public constructor(entity: ECS.Entity) {
+	public constructor(entity: Entity) {
 		super(entity);
 
 		this.color = new GraphicsEngine.Vector4(1, 1, 1, 1);

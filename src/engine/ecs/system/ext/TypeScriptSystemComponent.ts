@@ -1,5 +1,5 @@
 import {GameSystemComponent} from "../GameSystemComponent";
-import {TypeScriptComponent} from "../../component/ext/TypeScriptComponent";
+import {TypeScriptComponent} from "../../../../libs/entity_component_system/component/ext/TypeScriptComponent";
 
 export class TypeScriptSystemComponent extends GameSystemComponent<TypeScriptComponent> {
 	private static instance: TypeScriptSystemComponent | null;

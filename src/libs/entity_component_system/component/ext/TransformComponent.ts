@@ -1,6 +1,6 @@
+import {TransformSystemComponent} from "../../../../engine/ecs/system/ext/TransformSystemComponent";
 import {GameComponent} from "../GameComponent";
-import {TransformSystemComponent} from "../../system/ext/TransformSystemComponent";
-import {ECS} from "#entity_component_system/namespace/ecs";
+import {Entity} from "../../entity/Entity";
 import {GraphicsEngine} from "#graphics_engine/namespace/graphics_engine";
 
 export class TransformComponent extends GameComponent {
@@ -8,7 +8,7 @@ export class TransformComponent extends GameComponent {
 	public rotation: GraphicsEngine.Vector3;
 	public scale: GraphicsEngine.Vector3;
 
-	public constructor(entity: ECS.Entity) {
+	public constructor(entity: Entity) {
 		super(entity);
 
 		this.position = new GraphicsEngine.Vector3(0, 0, 0);

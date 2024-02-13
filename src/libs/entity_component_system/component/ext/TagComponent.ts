@@ -1,12 +1,12 @@
+import {TagSystemComponent} from "../../../../engine/ecs/system/ext/TagSystemComponent";
 import {GameComponent} from "../GameComponent";
-import {TagSystemComponent} from "../../system/ext/TagSystemComponent";
-import {ECS} from "#entity_component_system/namespace/ecs";
+import {Entity} from "../../entity/Entity";
 import {GraphicsEngine} from "#graphics_engine/namespace/graphics_engine";
 
 export class TagComponent extends GameComponent {
 	public tag!: string;
 
-	public constructor(entity: ECS.Entity) {
+	public constructor(entity: Entity) {
 		super(entity);
 
 		TagSystemComponent.getInstance().saveComponent(this);

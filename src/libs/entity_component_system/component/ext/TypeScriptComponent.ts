@@ -1,7 +1,7 @@
-import {GameComponent} from "../GameComponent";
 import {BaseScript} from "../../script/BaseScript";
-import {TypeScriptSystemComponent} from "../../system/ext/TypeScriptSystemComponent";
-import {ECS} from "#entity_component_system/namespace/ecs";
+import {TypeScriptSystemComponent} from "../../../../engine/ecs/system/ext/TypeScriptSystemComponent";
+import {GameComponent} from "../GameComponent";
+import {Entity} from "../../entity/Entity";
 import {GraphicsEngine} from "#graphics_engine/namespace/graphics_engine";
 
 export class TypeScriptComponent extends GameComponent {
@@ -14,7 +14,7 @@ export class TypeScriptComponent extends GameComponent {
 	private onUpdateFn: (time: GraphicsEngine.Time) => void;
 	private onDestroyFn: () => void;
 
-	public constructor(entity: ECS.Entity) {
+	public constructor(entity: Entity) {
 		super(entity);
 
 		this.instanceFn = () => {};

@@ -1,5 +1,5 @@
 import {GameSystemComponent} from "../GameSystemComponent";
-import {TagComponent} from "../../component/ext/TagComponent";
+import {TagComponent} from "../../../../libs/entity_component_system/component/ext/TagComponent";
 
 export class TagSystemComponent extends GameSystemComponent<TagComponent> {
 	private static instance: TagSystemComponent | null;

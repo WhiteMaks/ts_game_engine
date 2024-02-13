@@ -1,7 +1,5 @@
 import {Sprite2DRendererSystemComponent} from "./ecs/system/ext/Sprite2DRendererSystemComponent";
 import {TransformSystemComponent} from "./ecs/system/ext/TransformSystemComponent";
-import {TransformComponent} from "./ecs/component/ext/TransformComponent";
-import {TagComponent} from "./ecs/component/ext/TagComponent";
 import {TagSystemComponent} from "./ecs/system/ext/TagSystemComponent";
 import {CameraSystemComponent} from "./ecs/system/ext/CameraSystemComponent";
 import {GameEngine} from "./GameEngine";
@@ -42,8 +40,8 @@ export class Scene {
 		name = name + " " + Scene.entityId;
 
 		const result = new ECS.Entity(Scene.entityId++);
-		result.addComponent(TransformComponent);
-		result.addComponent(TagComponent).tag = name;
+		result.addComponent(ECS.TransformComponent);
+		result.addComponent(ECS.TagComponent).tag = name;
 		return result;
 	}
 
