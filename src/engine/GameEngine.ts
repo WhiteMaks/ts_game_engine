@@ -1,8 +1,8 @@
 import {ILayerStack} from "./layer/ILayerStack";
 import {BaseLayer} from "./layer/impl/BaseLayer";
 import {BaseLayerStack} from "./layer/impl/BaseLayerStack";
-import {EventSystem} from "#events_system/src/namespace/event_system";
-import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
+import {EventSystem} from "#events_system/namespace/event_system";
+import {GraphicsEngine} from "#graphics_engine/namespace/graphics_engine";
 
 export class GameEngine extends GraphicsEngine.GraphicsApplication {
 	public static renderer2D: GraphicsEngine.Renderer2D;

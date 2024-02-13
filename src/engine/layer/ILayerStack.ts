@@ -1,5 +1,5 @@
 import {ILayer} from "./ILayer";
-import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
+import {GraphicsEngine} from "#graphics_engine/namespace/graphics_engine";
 
 export interface ILayerStack<LAYER extends ILayer> extends GraphicsEngine.Cleanable {
 

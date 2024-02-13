@@ -1,6 +1,6 @@
 import {ILayer} from "../ILayer";
-import {EventSystem} from "#events_system/src/namespace/event_system";
-import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
+import {EventSystem} from "#events_system/namespace/event_system";
+import {GraphicsEngine} from "#graphics_engine/namespace/graphics_engine";
 
 export abstract class BaseLayer implements ILayer {
 	private readonly name: string;

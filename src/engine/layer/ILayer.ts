@@ -1,5 +1,5 @@
-import {EventSystem} from "#events_system/src/namespace/event_system";
-import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
+import {EventSystem} from "#events_system/namespace/event_system";
+import {GraphicsEngine} from "#graphics_engine/namespace/graphics_engine";
 
 export interface ILayer extends GraphicsEngine.Cleanable {
 

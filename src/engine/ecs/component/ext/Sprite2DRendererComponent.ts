@@ -2,8 +2,8 @@ import {GameComponent} from "../GameComponent";
 import {Sprite2DRendererSystemComponent} from "../../system/ext/Sprite2DRendererSystemComponent";
 import {TransformComponent} from "./TransformComponent";
 import {GameEngine} from "../../../GameEngine";
-import {ECS} from "#entity_component_system/src/namespace/ecs";
-import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
+import {ECS} from "#entity_component_system/namespace/ecs";
+import {GraphicsEngine} from "#graphics_engine/namespace/graphics_engine";
 
 export class Sprite2DRendererComponent extends GameComponent {
 	public sprite!: GraphicsEngine.Sprite2D;

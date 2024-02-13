@@ -1,8 +1,8 @@
 import {GameComponent} from "../GameComponent";
 import {BaseScript} from "../../script/BaseScript";
 import {TypeScriptSystemComponent} from "../../system/ext/TypeScriptSystemComponent";
-import {ECS} from "#entity_component_system/src/namespace/ecs";
-import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
+import {ECS} from "#entity_component_system/namespace/ecs";
+import {GraphicsEngine} from "#graphics_engine/namespace/graphics_engine";
 
 export class TypeScriptComponent extends GameComponent {
 	private script!: BaseScript | null;

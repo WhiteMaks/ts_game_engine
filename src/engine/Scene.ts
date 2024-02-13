@@ -8,8 +8,8 @@ import {GameEngine} from "./GameEngine";
 import {Texture2DRendererSystemComponent} from "./ecs/system/ext/Texture2DRendererSystemComponent";
 import {ColorRendererSystemComponent} from "./ecs/system/ext/ColorRendererSystemComponent";
 import {TypeScriptSystemComponent} from "./ecs/system/ext/TypeScriptSystemComponent";
-import {ECS} from "#entity_component_system/src/namespace/ecs";
-import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
+import {ECS} from "#entity_component_system/namespace/ecs";
+import {GraphicsEngine} from "#graphics_engine/namespace/graphics_engine";
 
 export class Scene {
 	private static entityId: number = 1;

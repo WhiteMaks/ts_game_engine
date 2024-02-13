@@ -1,6 +1,6 @@
 import {GameSystemComponent} from "../GameSystemComponent";
 import {CameraComponent} from "../../component/ext/CameraComponent";
-import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
+import {GraphicsEngine} from "#graphics_engine/namespace/graphics_engine";
 
 export class CameraSystemComponent extends GameSystemComponent<CameraComponent> {
 	private static instance: CameraSystemComponent | null;

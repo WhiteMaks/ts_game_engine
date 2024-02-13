@@ -1,5 +1,5 @@
-import {ECS} from "#entity_component_system/src/namespace/ecs";
-import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
+import {ECS} from "#entity_component_system/namespace/ecs";
+import {GraphicsEngine} from "#graphics_engine/namespace/graphics_engine";
 
 export abstract class BaseScript {
 	private readonly entity: ECS.Entity;

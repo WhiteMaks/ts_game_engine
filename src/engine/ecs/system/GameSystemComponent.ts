@@ -1,6 +1,6 @@
 import {GameComponent} from "../component/GameComponent";
-import {ECS} from "#entity_component_system/src/namespace/ecs";
-import {GraphicsEngine} from "#graphics_engine/src/namespace/graphics_engine";
+import {ECS} from "#entity_component_system/namespace/ecs";
+import {GraphicsEngine} from "#graphics_engine/namespace/graphics_engine";
 
 export abstract class GameSystemComponent<T extends GameComponent> extends ECS.System<T> {
 
