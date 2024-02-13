@@ -1,4 +1,4 @@
-import {TransformSystemComponent} from "../../../../engine/ecs/system/ext/TransformSystemComponent";
+import {TransformSystemComponent} from "../../system/ext/TransformSystemComponent";
 import {GameComponent} from "../GameComponent";
 import {Entity} from "../../entity/Entity";
 import {GraphicsEngine} from "#graphics_engine/namespace/graphics_engine";

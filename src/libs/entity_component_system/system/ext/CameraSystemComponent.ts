@@ -1,5 +1,5 @@
 import {GameSystemComponent} from "../GameSystemComponent";
-import {CameraComponent} from "../../../../libs/entity_component_system/component/ext/CameraComponent";
+import {CameraComponent} from "../../component/ext/CameraComponent";
 import {GraphicsEngine} from "#graphics_engine/namespace/graphics_engine";
 
 export class CameraSystemComponent extends GameSystemComponent<CameraComponent> {

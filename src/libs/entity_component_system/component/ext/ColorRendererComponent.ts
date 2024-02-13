@@ -1,6 +1,6 @@
 import {TransformComponent} from "./TransformComponent";
 import {GameEngine} from "../../../../engine/GameEngine";
-import {ColorRendererSystemComponent} from "../../../../engine/ecs/system/ext/ColorRendererSystemComponent";
+import {ColorRendererSystemComponent} from "../../system/ext/ColorRendererSystemComponent";
 import {GameComponent} from "../GameComponent";
 import {Entity} from "../../entity/Entity";
 import {GraphicsEngine} from "#graphics_engine/namespace/graphics_engine";

@@ -1,5 +1,5 @@
 import {BaseScript} from "../../script/BaseScript";
-import {TypeScriptSystemComponent} from "../../../../engine/ecs/system/ext/TypeScriptSystemComponent";
+import {TypeScriptSystemComponent} from "../../system/ext/TypeScriptSystemComponent";
 import {GameComponent} from "../GameComponent";
 import {Entity} from "../../entity/Entity";
 import {GraphicsEngine} from "#graphics_engine/namespace/graphics_engine";

@@ -1,4 +1,4 @@
-import {Sprite2DRendererSystemComponent} from "../../../../engine/ecs/system/ext/Sprite2DRendererSystemComponent";
+import {Sprite2DRendererSystemComponent} from "../../system/ext/Sprite2DRendererSystemComponent";
 import {TransformComponent} from "./TransformComponent";
 import {GameEngine} from "../../../../engine/GameEngine";
 import {GameComponent} from "../GameComponent";

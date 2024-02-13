@@ -1,8 +1,8 @@
-import {GameComponent} from "#entity_component_system/component/GameComponent";
-import {ECS} from "#entity_component_system/namespace/ecs";
+import {System} from "./System"
+import {GameComponent} from "../component/GameComponent"
 import {GraphicsEngine} from "#graphics_engine/namespace/graphics_engine";
 
-export abstract class GameSystemComponent<T extends GameComponent> extends ECS.System<T> {
+export abstract class GameSystemComponent<T extends GameComponent> extends System<T> {
 
 	protected constructor() {
 		super();

@@ -1,4 +1,4 @@
-import {TagSystemComponent} from "../../../../engine/ecs/system/ext/TagSystemComponent";
+import {TagSystemComponent} from "../../system/ext/TagSystemComponent";
 import {GameComponent} from "../GameComponent";
 import {Entity} from "../../entity/Entity";
 import {GraphicsEngine} from "#graphics_engine/namespace/graphics_engine";
