@@ -39,6 +39,10 @@ export class Entity {
 		this.components.delete(componentClass.name);
 	}
 
+	public getScene(): Scene {
+		return this.scene;
+	}
+
 	public clean(): void {
 		for (const component of this.components.values()) {
 			component.remove();
