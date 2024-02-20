@@ -20,7 +20,21 @@ export class Default2DShader {
 					mat4 translationMatrix = mat4(1.0);
 					
 					translationMatrix[3] = vec4(a_Translate, 1.0);
-				
+					
+					mat4 rotationMatrixX = mat4(
+						1.0, 0.0, 0.0, 0.0,
+						0.0, cos(a_Rotation.x), -sin(a_Rotation.x), 0.0,
+						0.0, sin(a_Rotation.x), cos(a_Rotation.x), 0.0,
+						0.0, 0.0, 0.0, 1.0
+					);
+					
+					mat4 rotationMatrixY = mat4(
+						cos(a_Rotation.y), 0.0, sin(a_Rotation.y), 0.0,
+						0.0, 1.0, 0.0, 0.0,
+						-sin(a_Rotation.y), 0.0, cos(a_Rotation.y), 0.0,
+						0.0, 0.0, 0.0, 1.0
+					);
+					
 					mat4 rotationMatrixZ = mat4(
 						cos(a_Rotation.z), -sin(a_Rotation.z), 0.0, 0.0,
 						sin(a_Rotation.z), cos(a_Rotation.z), 0.0, 0.0,
@@ -35,7 +49,7 @@ export class Default2DShader {
 						0.0, 0.0, 0.0, 1.0
 					);
 				
-					return translationMatrix * rotationMatrixZ * scaleMatrix;
+					return translationMatrix * rotationMatrixX * rotationMatrixY * rotationMatrixZ * scaleMatrix;
 				}
 				
 				void main() {

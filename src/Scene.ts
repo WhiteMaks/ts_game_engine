@@ -5,6 +5,8 @@ import {ECS} from "./entity_component_system/namespace/ecs";
 export class Scene {
 	private static entityId: number = 1;
 
+	private readonly entities: ECS.Entity[];
+
 	private readonly transformSystemComponent: ECS.TransformSystemComponent;
 	private readonly sprite2DRendererSystemComponent: ECS.Sprite2DRendererSystemComponent;
 	private readonly tagSystemComponent: ECS.TagSystemComponent;
@@ -27,14 +29,17 @@ export class Scene {
 
 		this.width = width;
 		this.height = height;
+
+		this.entities = [];
 	}
 
 	public createEntity(name: string = "Entity"): ECS.Entity {
-		name = name + " " + Scene.entityId;
-
 		const result = new ECS.Entity(Scene.entityId++, this);
 		result.addComponent(ECS.TransformComponent);
 		result.addComponent(ECS.TagComponent).tag = name;
+
+		this.entities.push(result);
+
 		return result;
 	}
 
@@ -80,5 +85,9 @@ export class Scene {
 		this.texture2DRendererSystemComponent.clean();
 		this.colorRendererSystemComponent.clean();
 		this.typeScriptSystemComponent.clean();
+	}
+
+	public getEntities(): ECS.Entity[] {
+		return this.entities;
 	}
 }
