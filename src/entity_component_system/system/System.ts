@@ -1,7 +1,7 @@
 import { Component } from "../component/Component";
 
 export abstract class System<T extends Component> {
-	protected readonly components: T[];
+	protected components: T[];
 
 	protected constructor() {
 		this.components = new Array<T>();
