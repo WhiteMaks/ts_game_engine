@@ -7,6 +7,7 @@ export * from "./component/ext/CameraComponent"
 export * from "./component/ext/Sprite2DRendererComponent"
 export * from "./component/ext/Texture2DRendererComponent"
 export * from "./component/ext/ColorRendererComponent"
+export * from "./component/ext/State2DAnimationMachineComponent"
 
 export * from "./entity/Entity"
 
@@ -21,3 +22,7 @@ export * from "./system/ext/TypeScriptSystemComponent"
 export * from "./system/ext/TagSystemComponent"
 export * from "./system/ext/Texture2DRendererSystemComponent"
 export * from "./system/ext/ColorRendererSystemComponent"
+export * from "./system/ext/State2DAnimationMachineSystemComponent"
+
+export * from "./support/animation/Animation2DSpriteFrame"
+export * from "./support/animation/Animation2DSpriteState"

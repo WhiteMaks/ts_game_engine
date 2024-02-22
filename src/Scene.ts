@@ -14,6 +14,7 @@ export class Scene {
 	private readonly texture2DRendererSystemComponent: ECS.Texture2DRendererSystemComponent;
 	private readonly colorRendererSystemComponent: ECS.ColorRendererSystemComponent;
 	private readonly typeScriptSystemComponent: ECS.TypeScriptSystemComponent;
+	private readonly state2DMachineSystemComponent: ECS.State2DAnimationMachineSystemComponent;
 
 	private width: number;
 	private height: number;
@@ -26,6 +27,7 @@ export class Scene {
 		this.texture2DRendererSystemComponent = ECS.Texture2DRendererSystemComponent.getInstance();
 		this.colorRendererSystemComponent = ECS.ColorRendererSystemComponent.getInstance();
 		this.typeScriptSystemComponent = ECS.TypeScriptSystemComponent.getInstance();
+		this.state2DMachineSystemComponent = ECS.State2DAnimationMachineSystemComponent.getInstance();
 
 		this.width = width;
 		this.height = height;
@@ -62,6 +64,7 @@ export class Scene {
 		this.colorRendererSystemComponent.update(time);
 		this.texture2DRendererSystemComponent.update(time);
 		this.typeScriptSystemComponent.update(time);
+		this.state2DMachineSystemComponent.update(time);
 	}
 
 	public render(): void {
@@ -85,6 +88,7 @@ export class Scene {
 		this.texture2DRendererSystemComponent.clean();
 		this.colorRendererSystemComponent.clean();
 		this.typeScriptSystemComponent.clean();
+		this.state2DMachineSystemComponent.clean();
 	}
 
 	public getEntities(): ECS.Entity[] {
