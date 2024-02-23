@@ -29,6 +29,11 @@ export enum Key {
 	Y = "KeyY",
 	Z = "KeyZ",
 
+	ARROW_RIGHT = "ArrowRight",
+	ARROW_LEFT = "ArrowLeft",
+	ARROW_UP = "ArrowUp",
+	ARROW_DOWN = "ArrowDown",
+
 	LEFT_SHIFT = "ShiftLeft",
 	LEFT_CTR = "ControlLeft",
 	SPACE = "Space",
